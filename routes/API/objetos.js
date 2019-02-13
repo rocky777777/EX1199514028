@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 var fileModel = require('./jsonmodel');
-var data = null; // temporary store
+var data = null; // 
 
 var zamorano = {
   '_RTN':'',
@@ -13,9 +13,9 @@ var zamorano = {
   'RUBRO':'',
   'DIRECCION':null,
   'TELEFONO':false,
-  'type': 'small' // big
+  'type': 'small' // 
 };
-//obtenerOneBigThing
+
 router.get('/', function( req, res, next) {
     if(!data){
       fileModel.read(function(err, filedata){
@@ -51,7 +51,7 @@ router.get('/', function( req, res, next) {
     }
     return res.status(200).json(_thingsData);
   });
-});// nuevo bigThing
+});// 
 
 router.put('/done/:thingId', function(req, res, next){
     var _zamorano = req.params.thingId;
