@@ -17,32 +17,32 @@ var zamorano = {
 };
 //obtenerOneBigThing
 router.get('/', function( req, res, next) {
-  if(!data){
-    fileModel.read(function(err, filedata){
-      if(err){
-        console.log(err);
-        data = [];
-        return res.status(500).json({'error':'Error al Obtener Data'});
-      }
-      data = JSON.parse(filedata);
+    if(!data){
+      fileModel.read(function(err, filedata){
+        if(err){
+          console.log(err);
+          data = [];
+          return res.status(500).json({'error':'Error al Obtener Data'});
+        }
+        data = JSON.parse(filedata);
+        return res.status(200).json(data);
+      });
+    } else {
       return res.status(200).json(data);
-    });
-  } else {
-    return res.status(200).json(data);
-  }
-});// get /
-
-router.post('/new', function(req, res, next){
-  var _thingsData = Object.assign({} , bigThingTp, req.body);
-  var dateT = new Date();
-  var dateD = new Date();
-  dateD.setDate(dateT.getDate()+ 3);
-  _thingsData.fcIng = dateT;
-  _thingsData.due = dateD;
-  _thingsData._id = uuidv4();
-  if(!data){
-    data = [];
-  }
+    }
+  });// get /
+  
+  router.post('/new', function(req, res, next){
+    var _zamorano = Object.assign({} , bigThingTp, req.body);
+    var dateT = new Date();
+    var dateD = new Date();
+    dateD.setDate(dateT.getDate()+ 3);
+    _zamorano.fcIng = dateT;
+    _zamorano.due = dateD;
+    _zamorano._id = uuidv4();
+    if(!data){
+      data = [];
+    }
   data.push(_thingsData);
   fileModel.write(data, function(err){
     if(err){
@@ -54,12 +54,12 @@ router.post('/new', function(req, res, next){
 });// nuevo bigThing
 
 router.put('/done/:thingId', function(req, res, next){
-  var _thingId = req.params.thingId;
-  var _thingUpds = req.body;
-  var _thingUpdated = null;
+  var _zamorano = req.params.thingId;
+  var _zamorano = req.body;
+  var _zamorano = null;
   var newData = data.map(
     function(doc, i){
-      if (doc._id == _thingId){
+      if (doc._id == _zamorano){
         _thingUpdated = Object.assign(
           {},
           doc,
@@ -77,13 +77,13 @@ router.put('/done/:thingId', function(req, res, next){
       console.log(err);
       return res.status(500).json({ 'error': 'Error al Guardar Data' });
     }
-    return res.status(200).json(_thingUpdated);
+    return res.status(200).json(_zamoranoUpdated);
   });
 });// Set A Thing as Done
 
 
 router.delete('/delete/:thingId', function(req, res, next){
-  var _thingId = req.params.thingId;
+  var _zamorano = req.params.thingId;
   var newData = data.filter(
     function (doc, i) {
       if (doc._id == _thingId) {
