@@ -54,22 +54,22 @@ router.get('/', function( req, res, next) {
 });// nuevo bigThing
 
 router.put('/done/:thingId', function(req, res, next){
-  var _zamorano = req.params.thingId;
-  var _zamorano = req.body;
-  var _zamorano = null;
-  var newData = data.map(
-    function(doc, i){
-      if (doc._id == _zamorano){
-        _thingUpdated = Object.assign(
-          {},
-          doc,
-          {"done":true},
-          _thingUpds
-          );
-        return _thingUpdated;
+    var _zamorano = req.params.thingId;
+    var _zamorano = req.body;
+    var _zamorano = null;
+    var newData = data.map(
+      function(doc, i){
+        if (doc._id == _zamorano){
+          _thingUpdated = Object.assign(
+            {},
+            doc,
+            {"done":true},
+            _thingUpds
+            );
+          return _thingUpdated;
+        }
+        return doc;
       }
-      return doc;
-    }
   );// end map
   data = newData;
   fileModel.write(data, function (err) {
