@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "8cd486db-a44-551b-10d1-9968e42941d7",
+		"name": "SeminarioExamen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/api/zamorano/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "empresa",
+							"value": "zamorano",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "https://www.facebook.com",
+							"type": "text"
+						},
+						{
+							"key": "year",
+							"value": "2019",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "Desahusiados",
+							"type": "text"
+						},
+						{
+							"key": "rating",
+							"value": "4.5",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/zamorano/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"zamorano",
+						""
+					]
+				},
+				"description": "examen"
+			},
+			"response": []
+		}
+	]
+}
