@@ -23,6 +23,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', apiRouter);
+
+app.post('/hola', (req, res) => {
+  res.send(req.body.empresa);
+});
+app.get('/ingreso', (req, res, next) => {
+  var datos = {
+    "empresa": "",
+    "RTN": "",
+    "fecha": "",
+    "correo":"",
+    "rubro":"",
+  
+  }
+  res.render("url", datos);
+});
+app.post('/ingreso', (req, res, next) => {
+  var date = new Date();
+  var correos = ["noe_paz7@gmail.com", "Fabriciochapas@gmail.com", "henrypaz@gmail.com", "menchita@gmail.com", "elmasin@gamil.com", "", ];
+ 
+  res.send("Empresa: " + req.body.empresa + "URL: " + req.body.url + "video: " + req.body.video + "a?o: " + req.body.ano + "Ingreso: " + date.getDay().toString() + " de " + meses[date.getMonth()] + ", " + date.getFullYear().toString());
+});
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
