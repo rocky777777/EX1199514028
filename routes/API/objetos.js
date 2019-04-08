@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 
-var fileModel = require('./jsonmodel');
+var fileModel = require('./newmodel');
 var data = null; // 
 
 var zamorano = {
